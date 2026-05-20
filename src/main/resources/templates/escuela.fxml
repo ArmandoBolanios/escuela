@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox styleClass="root, vboxPrincipal" xmlns="http://javafx.com/javafx/21.0.6" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.bd.controller.EscuelaController" stylesheets="@../css/estilos.css">
+
+    <!-- 1. TITULO Y TABLA (Ocupan la parte superior) -->
+    <Label text="SISTEMA DE ALUMNOS" styleClass="lblTitulo" maxWidth="Infinity"/>
+
+    <!-- VBox.vgrow="ALWAYS" hace que la tabla crezca verticalmente ocupando el espacio disponible -->
+    <TableView fx:id="alumnoTabla" onMouseClicked="#cargarAlumnoFormulario" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idAlumno" text="# LISTA" prefWidth="50.0"/>
+            <TableColumn fx:id="nombreAlumno" text="NOMBRE"/>
+            <TableColumn fx:id="aPaterno" text="A. PATERNO"/>
+            <TableColumn fx:id="aMaterno" text="A. MATERNO"/>
+            <TableColumn fx:id="curp" text="CURP"/>
+            <TableColumn fx:id="edad" text="EDAD"/>
+            <TableColumn fx:id="grado" text="GRADO"/>
+        </columns>
+        <!-- Esto hace que las columnas se estiren para llenar el ancho de la tabla -->
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+    </TableView>
+
+    <!-- 2. FORMULARIO CON GRIDPANE -->
+    <GridPane hgap="10.0" vgap="15.0" styleClass="form-container">
+
+        <columnConstraints>
+            <!-- PAREJA 1 -->
+            <!-- Col 0 (Label): Solo ocupa lo que mide el texto -->
+            <ColumnConstraints hgrow="NEVER" minWidth="-Infinity"/>
+            <!-- Col 1 (Input): hgrow="ALWAYS" significa "Toma todo el espacio sobrante" -->
+            <ColumnConstraints hgrow="ALWAYS" minWidth="100.0"/>
+
+            <!-- PAREJA 2 -->
+            <!-- Col 2 (Label) -->
+            <ColumnConstraints hgrow="NEVER" minWidth="-Infinity"/>
+            <!-- Col 3 (Input) -->
+            <ColumnConstraints hgrow="ALWAYS" minWidth="100.0"/>
+
+            <!-- PAREJA 3 -->
+            <!-- Col 4 (Label) -->
+            <ColumnConstraints hgrow="NEVER" minWidth="-Infinity"/>
+            <!-- Col 5 (Input) -->
+            <ColumnConstraints hgrow="ALWAYS" minWidth="100.0"/>
+        </columnConstraints>
+
+        <!-- FILA 0 -->
+        <Label text="Nombre:" styleClass="lblFormulario" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtNombreAlumno" promptText="Nombre" styleClass="text-field-custom" GridPane.columnIndex="1"
+                   GridPane.rowIndex="0"/>
+
+        <Label text="A. Paterno:" styleClass="lblFormulario" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtAPaterno" promptText="Apellido Paterno" styleClass="text-field-custom" GridPane.columnIndex="3"
+                   GridPane.rowIndex="0"/>
+
+        <Label text="A. Materno:" styleClass="lblFormulario" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtAMaterno" promptText="Apellido Materno" styleClass="text-field-custom" GridPane.columnIndex="5"
+                   GridPane.rowIndex="0"/>
+
+        <!-- FILA 1 -->
+        <Label text="CURP:" styleClass="lblFormulario" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtCurp" promptText="CURP" styleClass="text-field-custom" GridPane.columnIndex="1"
+                   GridPane.rowIndex="1"/>
+
+        <Label text="Edad:" styleClass="lblFormulario" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtEdad" promptText="Edad" styleClass="text-field-custom" GridPane.columnIndex="3"
+                   GridPane.rowIndex="1"/>
+
+        <Label text="Grado:" styleClass="lblFormulario" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtGrado" promptText="Grado" styleClass="text-field-custom" GridPane.columnIndex="5"
+                   GridPane.rowIndex="1"/>
+
+    </GridPane>
+
+    <!-- 3. BOTONES DE ACCIÓN (Parte inferior) -->
+    <HBox alignment="CENTER_RIGHT" spacing="20.0" prefHeight="50.0">
+        <Button text="Agregar" onAction="#agregarAlumno" styleClass="btn, btn-agregar"/>
+        <Button text="Modificar" onAction="#modificarAlumno" styleClass="btn, btn-modificar"/>
+        <Button text="Eliminar" onAction="#eliminarAlumno" styleClass="btn, btn-eliminar"/>
+        <Button text="Limpiar Formulario" onAction="#limpiarFormulario" styleClass="btn, btn-limpiar"/>
+        <Button text="Generar Reporte" onAction="#generarReporte" styleClass="btn, btn-reporte"/>
+    </HBox>
+
+</VBox>

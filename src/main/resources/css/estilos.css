@@ -1,0 +1,242 @@
+.root {
+    -fx-font-family: "Inter 18pt";
+    -fx-snap-to-pixel: true; /* Fuerza a redondear coordenadas */
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+}
+
+.lblTituloSplash {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold; /* Ahora sí usará el archivo Bold real */
+    -fx-text-fill: #FFF;
+}
+
+.vboxPrincipal {
+    /* -fx-pref-height: 600; -fx-pref-width: 950; */
+    -fx-spacing: 20;
+    -fx-padding: 20; /* Padding general para que no pegue con los bordes de la ventana */
+}
+
+.lblTitulo {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold; /* Ahora sí usará el archivo Bold real */
+    -fx-text-fill: #104de0;
+    -fx-alignment: CENTER;
+}
+
+/* ------------------------- Formulario de registro con Grid ---------------------------- */
+.form-container {
+    -fx-background-color: #fbfbfb; /* Un gris muy claro para diferenciar del blanco de fondo */
+    -fx-border-color: #d1d1d1;
+    -fx-border-width: 1px;
+    -fx-border-radius: 15px;      /* Borde redondo */
+    -fx-background-radius: 15px;  /* Fondo redondo */
+
+    /* Sombreado ligero (Drop Shadow) */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 10, 0, 0, 4);
+    -fx-padding: 15px; /* Menos padding a los lados */
+}
+
+/* etiquetas dentro del formulario */
+.lblFormulario {
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+}
+
+/* campos de texto */
+.text-field-custom {
+    -fx-background-color: linear-gradient(to bottom, #efefef, #eee);
+    -fx-border-color: #104de0;
+    -fx-border-width: .8px;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-alignment: CENTER_LEFT; /* centrado vertical, alineado a la izquierda */
+    -fx-padding: 8px 10px; /* Padding interno para que se vea más grande */
+    /* Opcional: Forzar una altura mínima para evitar que se aplaste */
+    -fx-min-height: 38px;
+    -fx-pref-height: 38px;
+}
+
+.text-field-custom:focused {
+    -fx-border-color: #2ca772; /* Borde verde al escribir */
+    -fx-background-color: #fff;
+    -fx-border-width: 1px;
+}
+
+/* --------------------------- BOTONES DE ACCION -----------------*/
+.btn {
+    -fx-background-radius: 3px;
+    -fx-cursor: hand;
+    -fx-padding: 8px 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    /* ELIMINAR EL BORDE CUANDO SE PIERDE EL FOCO */
+    -fx-background-insets: 0;
+}
+
+/* Efecto de presión (Hundimiento) */
+.btn:pressed {
+    /* Mueve el botón 2 pixeles hacia abajo para simular presión */
+    -fx-translate-y: 2;
+    /* Quita un poco de sombra si tuvieras, para dar realismo */
+    -fx-effect: none;
+}
+
+/* Colores específicos */
+.btn-agregar {
+    -fx-background-color: #28A745;
+}
+.btn-agregar:hover {
+    -fx-background-color: #218838; /* Efecto hover */
+}
+.btn-agregar:pressed { -fx-background-color: #1E7E34; }
+
+.btn-modificar {
+    -fx-background-color: #6C757D;
+}
+
+.btn-modificar:hover {
+    -fx-background-color: #5A6268;
+}
+.btn-modificar:pressed { -fx-background-color: #4E555B; }
+
+.btn-eliminar {
+    -fx-background-color: #DC3545;
+}
+
+.btn-eliminar:hover {
+    -fx-background-color: #C82333;
+}
+.btn-eliminar:pressed { -fx-background-color: #BD2130; }
+
+.btn-limpiar {
+    -fx-background-color: #ffd60a;
+    -fx-text-fill: #333333; /* Texto oscuro para contraste con amarillo */
+}
+
+.btn-limpiar:hover {
+    -fx-background-color: #f2ca04;
+}
+.btn-limpiar:pressed { -fx-background-color: #f1cd02; }
+
+.btn-reporte {
+    -fx-background-color: #6F42C1;
+}
+
+.btn-reporte:hover {
+    -fx-background-color: #774fc3; /* Efecto hover */
+}
+.btn-reporte:pressed { -fx-background-color: #6c3ec2; }
+
+/* ---------------- Estilos de Tabla para que se vea moderna ---------*/
+.table-view {
+    -fx-background-color: white;
+    -fx-padding: 0px;
+    /* borde sutil alrededor de toda la tabla*/
+    -fx-border-color: #d1d1d1;
+    -fx-border-width: 1px;
+    /* Forzamos la altura de cada fila a 35px (o 40px si prefieres más aire).
+    Esto evita que el texto se corte porque le damos espacio sobrado. */
+    -fx-fixed-cell-size: 35px;
+}
+
+/* Encabezado Azul Solido */
+.table-view .column-header-background {
+    -fx-background-color: #1d3557;
+    /* quitamos bordes raros */
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-min-height: 40px;   /* ¡Aquí defines la altura total del encabezado azul! */
+    -fx-pref-height: 40px;  /* Puedes usar 60px, 70px, lo que quieras */
+}
+
+/* El cuadro de la esquina superior derecha (encima del scroll bar vertical)
+ debe tener la misma altura
+ */
+.table-view .filler {
+    /* Debe ser DEL MISMO COLOR que el encabezado para que no se vea el cuadro gris */
+    -fx-background-color: #1d3557;
+    -fx-background-insets: 0;
+    /* El filler (esquina superior derecha) debe tener la misma altura que
+    .table-view .column-header-background */
+    -fx-min-height: 40px;
+    -fx-pref-height: 40px;
+}
+
+/* altura en el encabezado para que quepa el texto grande */
+.table-view .column-header {
+    /* transparente para ver el fondo azul */
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0 5px;
+}
+
+/* Texto del encabezado más grande y centrado verticalmente */
+.table-view .column-header .label {
+    -fx-text-fill: #fff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-padding: 0; /* centrado perfecto */
+}
+
+/* ---------------------- filas y celdas tableview -----------------*/
+/* es el contenedor de toda la fila */
+.table-row-cell {
+    -fx-background-insets: 0;
+    -fx-border-width: 0 0 1px 0; /* Línea divisoria sutil abajo */
+    -fx-border-color: #f0f0f0;
+}
+
+/* es la celda individual (Aquí es donde importa la alineación) */
+.table-cell {
+    -fx-padding: 0 5px; /* Darle aire a las celdas para que el texto no pegue al  borde */
+    -fx-alignment: CENTER_LEFT; /* Alinear texto verticalmente al centro */
+}
+
+/* Filas impares (Efecto cebra) */
+.table-row-cell:odd {
+    -fx-background-color: #ffffff;
+}
+
+/* Filas pares (Un gris muy suave) */
+.table-row-cell:even {
+    -fx-background-color: #f9f9f9;
+}
+
+/* Efecto cuando pasas el mouse por encima de una fila */
+.table-row-cell:filled:hover {
+    -fx-background-color: #e8f0fe; /* Azul muy clarito */
+}
+
+/* Fila seleccionada */
+.table-row-cell:filled:selected {
+    -fx-background-color: #457b9d; /* Tu azul medio */
+}
+
+/* Texto de la fila seleccionada */
+.table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: white;
+}
+
+/* ---------------- SCROLLBARS MODERNOS (Barra de desplazamiento) ------------- */
+.table-view .scroll-bar:vertical,
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.table-view .scroll-bar:vertical .thumb,
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: #b0b0b0; /* Gris suave */
+    -fx-background-radius: 5em;
+}
+
+.table-view .scroll-bar:vertical .thumb:hover,
+.table-view .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #808080; /* Gris más oscuro al pasar mouse */
+}
+
+
+

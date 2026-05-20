@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21.0.6" xmlns:fx="http://javafx.com/fxml/1"
+           stylesheets="@../css/estilos.css">
+
+    <!-- CAPA 1: FONDO -->
+    <!-- Asegúrate de tener la imagen 'fondo.jpg' en /images/ -->
+    <ImageView fitHeight="400.0" fitWidth="500.0" pickOnBounds="true">
+        <Image url="@../images/Business.png"/>
+    </ImageView>
+
+    <!-- CAPA 2: CONTENIDO (Transparente para ver el fondo) -->
+    <VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: rgba(0,0,0,0.6);">
+        <!-- El estilo rgba le da un tinte oscuro semitransparente para que se lea el texto -->
+
+        <!-- Logo de la App -->
+        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/icono.png"/>
+        </ImageView>
+
+        <Label text="Demo Aplicación" styleClass="lblTituloSplash"/>
+
+        <!-- BARRA DE PROGRESO (ID importante para el código) -->
+        <ProgressBar fx:id="barraProgreso" prefWidth="400.0" progress="0.0" />
+
+        <Label fx:id="lblEstado" text="Iniciando..." textFill="WHITE" />
+    </VBox>
+</StackPane>
