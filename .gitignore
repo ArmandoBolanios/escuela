@@ -43,3 +43,5 @@ app-image/
 Output/
 setup.iss
 escuela/
+crear_instalador.bat
+schema.sql
